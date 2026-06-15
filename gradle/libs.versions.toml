@@ -1,0 +1,44 @@
+[versions]
+kotlin            = "2.4.0"
+ksp               = "2.3.9"
+temporal          = "1.27.0"
+jackson           = "2.18.2"
+micronaut-bom     = "4.7.3"
+micronaut-kotlin  = "4.4.0"
+jackson-schema    = "2.18.2"
+kotest            = "5.9.1"
+mockk             = "1.13.13"
+
+[libraries]
+# Temporal
+temporal-sdk           = { module = "io.temporal:temporal-sdk",           version.ref = "temporal" }
+temporal-testing       = { module = "io.temporal:temporal-testing",       version.ref = "temporal" }
+
+# Kotlin
+kotlin-stdlib          = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlin-reflect         = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+
+# Jackson
+jackson-kotlin         = { module = "com.fasterxml.jackson.module:jackson-module-kotlin",    version.ref = "jackson" }
+jackson-json-schema    = { module = "com.fasterxml.jackson.module:jackson-module-jsonSchema", version.ref = "jackson-schema" }
+
+# Micronaut (managed via BOM in submodule)
+micronaut-http-server-netty = { module = "io.micronaut:micronaut-http-server-netty" }
+micronaut-inject-kotlin     = { module = "io.micronaut.kotlin:micronaut-kotlin-runtime", version.ref = "micronaut-kotlin" }
+micronaut-jackson           = { module = "io.micronaut:micronaut-jackson-databind" }
+micronaut-validation        = { module = "io.micronaut.validation:micronaut-validation" }
+micronaut-management        = { module = "io.micronaut:micronaut-management" }
+
+# KSP annotation processor for Micronaut (replaces kapt)
+micronaut-inject-java = { module = "io.micronaut:micronaut-inject-java", version.ref = "micronaut-bom" }
+
+# Test
+kotest-runner     = { module = "io.kotest:kotest-runner-junit5",   version.ref = "kotest" }
+kotest-assertions = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+mockk             = { module = "io.mockk:mockk",                   version.ref = "mockk" }
+
+[plugins]
+kotlin-jvm    = { id = "org.jetbrains.kotlin.jvm",       version.ref = "kotlin" }
+ksp           = { id = "com.google.devtools.ksp",         version.ref = "ksp"    }
+micronaut-app = { id = "io.micronaut.application",        version = "4.4.4"      }
+micronaut-lib = { id = "io.micronaut.library",            version = "4.4.4"      }

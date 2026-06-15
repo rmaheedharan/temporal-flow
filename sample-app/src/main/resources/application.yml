@@ -1,0 +1,7 @@
+micronaut:
+  application:
+    name: temporal-flow-sample
+
+temporal:
+  server-url: 127.0.0.1:7233
+  task-queue: order-fulfillment
