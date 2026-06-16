@@ -3,6 +3,7 @@ package dev.temporalflow.core.flow
 import dev.temporalflow.core.registry.DefinitionRegistry
 import dev.temporalflow.core.step.RegisteredStep
 import dev.temporalflow.core.step.StepDefinition
+import dev.temporalflow.core.step.TemporalStep
 import kotlin.reflect.KClass
 
 // ─── Execution context ────────────────────────────────────────────────────────
@@ -94,6 +95,11 @@ class FlowGraphBuilder<FI : Any, O : Any> {
     private val _nodes = mutableListOf<FlowNode<FI, *>>()
     private var _outputFn: (FlowNodeContext<FI>.() -> O)? = null
     private val nodeCounter = mutableMapOf<String, Int>()
+
+    fun <SI : Any, SO : Any> addStep(
+        step: TemporalStep<SI, SO>,
+        block: StepBuilder<FI, SI, SO>.() -> Unit
+    ): StepNode<FI, SI, SO> = addStep(step.registered, block)
 
     fun <SI : Any, SO : Any> addStep(
         type: RegisteredStep<SI, SO>,
