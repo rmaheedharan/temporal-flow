@@ -6,7 +6,7 @@ jackson           = "2.18.2"
 micronaut-bom     = "4.7.3"
 micronaut-kotlin  = "4.4.0"
 jackson-schema    = "2.18.2"
-kotest            = "5.9.1"
+junit-jupiter     = "5.12.1"
 mockk             = "1.13.13"
 
 [libraries]
@@ -33,8 +33,7 @@ micronaut-management        = { module = "io.micronaut:micronaut-management" }
 micronaut-inject-java = { module = "io.micronaut:micronaut-inject-java", version.ref = "micronaut-bom" }
 
 # Test
-kotest-runner     = { module = "io.kotest:kotest-runner-junit5",   version.ref = "kotest" }
-kotest-assertions = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+junit-jupiter     = { module = "org.junit.jupiter:junit-jupiter",  version.ref = "junit-jupiter" }
 mockk             = { module = "io.mockk:mockk",                   version.ref = "mockk" }
 
 [plugins]
