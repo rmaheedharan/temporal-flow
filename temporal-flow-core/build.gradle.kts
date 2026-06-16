@@ -18,8 +18,7 @@ dependencies {
     implementation(libs.jackson.kotlin)
     implementation(libs.jackson.json.schema)
 
-    testImplementation(libs.kotest.runner)
-    testImplementation(libs.kotest.assertions)
+    testImplementation(libs.junit.jupiter)
     testImplementation(libs.mockk)
     testImplementation(libs.temporal.testing)
 }

@@ -36,8 +36,7 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.yaml:snakeyaml")
 
-    testImplementation(libs.kotest.runner)
-    testImplementation(libs.kotest.assertions)
+    testImplementation(libs.junit.jupiter)
 }
 
 tasks.test {
